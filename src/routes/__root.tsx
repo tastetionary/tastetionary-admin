@@ -18,30 +18,30 @@ function RootComponent() {
 
   return (
     <>
-      <div className="bg-white border-b shadow-sm">
-        <div className="max-w-7xl mx-auto px-6 py-4">
+      <div className="border-b bg-white shadow-sm">
+        <div className="mx-auto max-w-7xl px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-6">
               <h2 className="text-xl font-bold text-gray-900">Tastetionary</h2>
               {user && (
                 <nav className="flex gap-4">
-                  <Link 
-                    to="/" 
-                    className="text-gray-600 hover:text-gray-900 transition-colors [&.active]:text-blue-600 [&.active]:font-medium"
+                  <Link
+                    to="/"
+                    className="text-gray-600 transition-colors hover:text-gray-900 [&.active]:font-medium [&.active]:text-blue-600"
                   >
                     대시보드
                   </Link>
                   {user.role === 'admin' && (
                     <>
-                      <Link 
-                        to="/admin" 
-                        className="text-gray-600 hover:text-gray-900 transition-colors [&.active]:text-blue-600 [&.active]:font-medium"
+                      <Link
+                        to="/admin"
+                        className="text-gray-600 transition-colors hover:text-gray-900 [&.active]:font-medium [&.active]:text-blue-600"
                       >
                         관리자
                       </Link>
-                      <Link 
-                        to="/admin/members" 
-                        className="text-gray-600 hover:text-gray-900 transition-colors [&.active]:text-blue-600 [&.active]:font-medium"
+                      <Link
+                        to="/admin/members"
+                        className="text-gray-600 transition-colors hover:text-gray-900 [&.active]:font-medium [&.active]:text-blue-600"
                       >
                         회원 관리
                       </Link>
@@ -55,12 +55,12 @@ function RootComponent() {
                 <div className="flex items-center gap-2 text-sm text-gray-600">
                   <User className="h-4 w-4" />
                   <span>{user.name}</span>
-                  <span className="text-xs bg-gray-100 px-2 py-1 rounded">
+                  <span className="rounded bg-gray-100 px-2 py-1 text-xs">
                     {user.role === 'admin' ? '관리자' : '사용자'}
                   </span>
                 </div>
                 <Button variant="outline" size="sm" onClick={handleLogout}>
-                  <LogOut className="h-4 w-4 mr-2" />
+                  <LogOut className="mr-2 h-4 w-4" />
                   로그아웃
                 </Button>
               </div>
@@ -72,4 +72,4 @@ function RootComponent() {
       <TanStackRouterDevtools />
     </>
   )
-} 
+}

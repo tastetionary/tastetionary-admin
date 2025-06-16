@@ -35,13 +35,19 @@ export function LoginForm() {
     },
   })
 
-  const { register, handleSubmit, formState: { errors }, setValue, watch } = form
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+    watch,
+  } = form
 
   const rememberMe = watch('rememberMe')
 
   const onSubmit = async (data: LoginFormData) => {
     setLoginError('')
-    
+
     try {
       const success = await login(data.email, data.password)
       if (success) {
@@ -50,18 +56,17 @@ export function LoginForm() {
         setLoginError('이메일 또는 비밀번호가 올바르지 않습니다.')
       }
     } catch (error) {
+      console.log(error)
       setLoginError('로그인 중 오류가 발생했습니다. 다시 시도해주세요.')
     }
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-6">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 p-6">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
           <CardTitle className="text-2xl font-bold">Tastetionary</CardTitle>
-          <CardDescription>
-            계정에 로그인하여 서비스를 이용하세요
-          </CardDescription>
+          <CardDescription>계정에 로그인하여 서비스를 이용하세요</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -80,9 +85,7 @@ export function LoginForm() {
                 {...register('email')}
                 className={errors.email ? 'border-red-500' : ''}
               />
-              {errors.email && (
-                <p className="text-sm text-red-500">{errors.email.message}</p>
-              )}
+              {errors.email && <p className="text-sm text-red-500">{errors.email.message}</p>}
             </div>
 
             <div className="space-y-2">
@@ -102,23 +105,17 @@ export function LoginForm() {
                   className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
                   onClick={() => setShowPassword(!showPassword)}
                 >
-                  {showPassword ? (
-                    <EyeOff className="h-4 w-4" />
-                  ) : (
-                    <Eye className="h-4 w-4" />
-                  )}
+                  {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                 </Button>
               </div>
-              {errors.password && (
-                <p className="text-sm text-red-500">{errors.password.message}</p>
-              )}
+              {errors.password && <p className="text-sm text-red-500">{errors.password.message}</p>}
             </div>
 
             <div className="flex items-center space-x-2">
               <Checkbox
                 id="rememberMe"
                 checked={rememberMe}
-                onCheckedChange={(checked) => setValue('rememberMe', !!checked)}
+                onCheckedChange={checked => setValue('rememberMe', !!checked)}
               />
               <Label htmlFor="rememberMe" className="text-sm">
                 로그인 상태 유지
@@ -139,10 +136,14 @@ export function LoginForm() {
 
           <div className="mt-6 text-center">
             <div className="text-sm text-gray-600">
-              <p className="mb-2">테스트 계정:</p>
-              <div className="space-y-1 text-xs bg-gray-50 p-3 rounded">
-                <p><strong>관리자:</strong> admin@tastetionary.com / admin123</p>
-                <p><strong>사용자:</strong> user@tastetionary.com / user123</p>
+              <p className="mb-2 text-left">테스트 계정:</p>
+              <div className="space-y-1 rounded bg-gray-50 px-6 py-3 text-left text-xs">
+                <p>
+                  <strong>관리자:</strong> admin@tastetionary.com / admin123
+                </p>
+                <p>
+                  <strong>사용자:</strong> user@tastetionary.com / user123
+                </p>
               </div>
             </div>
           </div>
@@ -150,4 +151,4 @@ export function LoginForm() {
       </Card>
     </div>
   )
-} 
+}
