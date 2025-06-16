@@ -1,8 +1,8 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Badge } from "@/components/ui/badge"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Badge } from '@/components/ui/badge'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import {
   Table,
   TableBody,
@@ -10,7 +10,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
+} from '@/components/ui/table'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -18,26 +18,26 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from '@/components/ui/dropdown-menu'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { 
-  Search, 
-  MoreHorizontal, 
-  UserPlus, 
-  Download, 
+} from '@/components/ui/select'
+import {
+  Search,
+  MoreHorizontal,
+  UserPlus,
+  Download,
   Filter,
   Eye,
   Edit,
   Trash2,
   Mail,
-  Phone
-} from "lucide-react"
+  Phone,
+} from 'lucide-react'
 
 interface Member {
   id: string
@@ -55,74 +55,74 @@ interface Member {
 
 const mockMembers: Member[] = [
   {
-    id: "M001",
-    name: "김민수",
-    email: "minsu.kim@example.com",
-    phone: "010-1234-5678",
-    level: "골드",
-    status: "active",
-    joinDate: "2023-03-15",
-    lastLogin: "2024-01-15",
+    id: 'M001',
+    name: '김민수',
+    email: 'minsu.kim@example.com',
+    phone: '010-1234-5678',
+    level: '골드',
+    status: 'active',
+    joinDate: '2023-03-15',
+    lastLogin: '2024-01-15',
     orders: 12,
     totalSpent: 450000,
   },
   {
-    id: "M002",
-    name: "이영희",
-    email: "younghee.lee@example.com",
-    phone: "010-2345-6789",
-    level: "실버",
-    status: "active",
-    joinDate: "2023-06-20",
-    lastLogin: "2024-01-14",
+    id: 'M002',
+    name: '이영희',
+    email: 'younghee.lee@example.com',
+    phone: '010-2345-6789',
+    level: '실버',
+    status: 'active',
+    joinDate: '2023-06-20',
+    lastLogin: '2024-01-14',
     orders: 8,
     totalSpent: 280000,
   },
   {
-    id: "M003",
-    name: "박철수",
-    email: "chulsoo.park@example.com",
-    phone: "010-3456-7890",
-    level: "플래티넘",
-    status: "active",
-    joinDate: "2023-01-10",
-    lastLogin: "2024-01-13",
+    id: 'M003',
+    name: '박철수',
+    email: 'chulsoo.park@example.com',
+    phone: '010-3456-7890',
+    level: '플래티넘',
+    status: 'active',
+    joinDate: '2023-01-10',
+    lastLogin: '2024-01-13',
     orders: 25,
     totalSpent: 890000,
   },
   {
-    id: "M004",
-    name: "정수진",
-    email: "sujin.jung@example.com",
-    phone: "010-4567-8901",
-    level: "브론즈",
-    status: "inactive",
-    joinDate: "2023-09-05",
-    lastLogin: "2023-12-20",
+    id: 'M004',
+    name: '정수진',
+    email: 'sujin.jung@example.com',
+    phone: '010-4567-8901',
+    level: '브론즈',
+    status: 'inactive',
+    joinDate: '2023-09-05',
+    lastLogin: '2023-12-20',
     orders: 3,
     totalSpent: 120000,
   },
   {
-    id: "M005",
-    name: "한지민",
-    email: "jimin.han@example.com",
-    phone: "010-5678-9012",
-    level: "골드",
-    status: "suspended",
-    joinDate: "2023-07-12",
-    lastLogin: "2024-01-10",
+    id: 'M005',
+    name: '한지민',
+    email: 'jimin.han@example.com',
+    phone: '010-5678-9012',
+    level: '골드',
+    status: 'suspended',
+    joinDate: '2023-07-12',
+    lastLogin: '2024-01-10',
     orders: 15,
     totalSpent: 520000,
   },
   {
-    id: "M006",
-    name: "송태희",
-    email: "taehee.song@example.com",
-    phone: "010-6789-0123",
-    level: "실버",
-    status: "active",
-    joinDate: "2023-11-08",
-    lastLogin: "2024-01-15",
+    id: 'M006',
+    name: '송태희',
+    email: 'taehee.song@example.com',
+    phone: '010-6789-0123',
+    level: '실버',
+    status: 'active',
+    joinDate: '2023-11-08',
+    lastLogin: '2024-01-15',
     orders: 6,
     totalSpent: 190000,
   },
@@ -159,30 +159,25 @@ export function MembersTable() {
 
   return (
     <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-7xl mx-auto">
+      <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900">회원 관리</h1>
-          <p className="text-gray-600 mt-2">회원 정보를 조회하고 관리하세요</p>
+          <p className="mt-2 text-gray-600">회원 정보를 조회하고 관리하세요</p>
         </div>
 
         {/* Controls */}
         <Card className="mb-6">
           <CardHeader>
             <CardTitle>회원 검색 및 필터</CardTitle>
-            <CardDescription>
-              회원을 검색하고 필터링할 수 있습니다
-            </CardDescription>
+            <CardDescription>회원을 검색하고 필터링할 수 있습니다</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col gap-4 sm:flex-row">
               <div className="flex-1">
                 <div className="relative">
                   <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                  <Input
-                    placeholder="이름, 이메일, 전화번호로 검색..."
-                    className="pl-10"
-                  />
+                  <Input placeholder="이름, 이메일, 전화번호로 검색..." className="pl-10" />
                 </div>
               </div>
               <div className="flex gap-2">
@@ -210,15 +205,15 @@ export function MembersTable() {
                   </SelectContent>
                 </Select>
                 <Button variant="outline">
-                  <Filter className="h-4 w-4 mr-2" />
+                  <Filter className="mr-2 h-4 w-4" />
                   필터
                 </Button>
                 <Button variant="outline">
-                  <Download className="h-4 w-4 mr-2" />
+                  <Download className="mr-2 h-4 w-4" />
                   내보내기
                 </Button>
                 <Button>
-                  <UserPlus className="h-4 w-4 mr-2" />
+                  <UserPlus className="mr-2 h-4 w-4" />
                   회원 추가
                 </Button>
               </div>
@@ -229,7 +224,7 @@ export function MembersTable() {
         {/* Members Table */}
         <Card>
           <CardHeader>
-            <div className="flex justify-between items-center">
+            <div className="flex items-center justify-between">
               <div>
                 <CardTitle>회원 목록</CardTitle>
                 <CardDescription>
@@ -254,15 +249,13 @@ export function MembersTable() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {mockMembers.map((member) => (
+                {mockMembers.map(member => (
                   <TableRow key={member.id}>
                     <TableCell>
                       <div className="flex items-center gap-3">
                         <Avatar className="h-8 w-8">
                           <AvatarImage src={member.avatar} />
-                          <AvatarFallback>
-                            {member.name.charAt(0)}
-                          </AvatarFallback>
+                          <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
                         </Avatar>
                         <div>
                           <div className="font-medium">{member.name}</div>
@@ -283,22 +276,16 @@ export function MembersTable() {
                       </div>
                     </TableCell>
                     <TableCell>
-                      <span className={`px-2 py-1 rounded-full text-xs font-medium ${getLevelColor(member.level)}`}>
+                      <span
+                        className={`rounded-full px-2 py-1 text-xs font-medium ${getLevelColor(member.level)}`}
+                      >
                         {member.level}
                       </span>
                     </TableCell>
-                    <TableCell>
-                      {getStatusBadge(member.status)}
-                    </TableCell>
-                    <TableCell className="text-sm">
-                      {member.joinDate}
-                    </TableCell>
-                    <TableCell className="text-sm">
-                      {member.lastLogin}
-                    </TableCell>
-                    <TableCell className="text-center">
-                      {member.orders}회
-                    </TableCell>
+                    <TableCell>{getStatusBadge(member.status)}</TableCell>
+                    <TableCell className="text-sm">{member.joinDate}</TableCell>
+                    <TableCell className="text-sm">{member.lastLogin}</TableCell>
+                    <TableCell className="text-center">{member.orders}회</TableCell>
                     <TableCell className="font-medium">
                       ₩{member.totalSpent.toLocaleString()}
                     </TableCell>
@@ -356,4 +343,4 @@ export function MembersTable() {
       </div>
     </div>
   )
-} 
+}

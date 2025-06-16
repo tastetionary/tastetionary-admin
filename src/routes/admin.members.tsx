@@ -12,4 +12,4 @@ function ProtectedMembersTable() {
 
 export const Route = createFileRoute('/admin/members')({
   component: ProtectedMembersTable,
-}) 
+})

@@ -12,4 +12,4 @@ function ProtectedAdminDashboard() {
 
 export const Route = createFileRoute('/admin/')({
   component: ProtectedAdminDashboard,
-}) 
+})
