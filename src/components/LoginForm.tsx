@@ -11,6 +11,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Checkbox } from '@/components/ui/checkbox'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Loader2, Eye, EyeOff } from 'lucide-react'
+import logoSvg from '@/assets/logo.svg'
 
 const loginSchema = z.object({
   email: z.string().email('올바른 이메일 주소를 입력해주세요'),
@@ -64,9 +65,12 @@ export function LoginForm() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 p-6">
       <Card className="w-full max-w-md">
-        <CardHeader className="text-center">
-          <CardTitle className="text-2xl font-bold">Tastetionary</CardTitle>
-          <CardDescription>계정에 로그인하여 서비스를 이용하세요</CardDescription>
+        <CardHeader className="flex flex-col items-center gap-3 text-center">
+          <div className="flex justify-center">
+            <img src={logoSvg} alt="맛셔너리 로고" className="h-[20px] w-[30px] text-center" />
+          </div>
+          <CardTitle className="font-galmuri !m-0 !font-medium">맛셔너리</CardTitle>
+          <CardDescription className="!m-0">계정에 로그인하여 서비스를 이용하세요.</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -81,7 +85,7 @@ export function LoginForm() {
               <Input
                 id="email"
                 type="email"
-                placeholder="이메일을 입력하세요"
+                placeholder="이메일을 입력하세요."
                 {...register('email')}
                 className={errors.email ? 'border-red-500' : ''}
               />
@@ -94,7 +98,7 @@ export function LoginForm() {
                 <Input
                   id="password"
                   type={showPassword ? 'text' : 'password'}
-                  placeholder="비밀번호를 입력하세요"
+                  placeholder="비밀번호를 입력하세요."
                   {...register('password')}
                   className={errors.password ? 'border-red-500 pr-10' : 'pr-10'}
                 />

@@ -3,6 +3,7 @@ import { TanStackRouterDevtools } from '@tanstack/router-devtools'
 import { useAuth } from '@/lib/auth'
 import { Button } from '@/components/ui/button'
 import { LogOut, User } from 'lucide-react'
+import logoSvg from '@/assets/logo.svg'
 
 export const Route = createRootRoute({
   component: RootComponent,
@@ -22,7 +23,10 @@ function RootComponent() {
         <div className="mx-auto max-w-7xl px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-6">
-              <h2 className="text-xl font-bold text-gray-900">Tastetionary</h2>
+              <div className="flex items-center gap-3">
+                <img src={logoSvg} alt="맛셔너리 로고" className="h-[20px] w-[30px]" />
+                <p className="font-galmuri m-0 leading-none">맛셔너리</p>
+              </div>
               {user && (
                 <nav className="flex gap-4">
                   <Link
