@@ -8,39 +8,41 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-// Import Routes
-
-import { Route as rootRoute } from './routes/__root'
-import { Route as LoginImport } from './routes/login'
-import { Route as AdminImport } from './routes/admin'
-import { Route as IndexImport } from './routes/index'
-import { Route as AdminIndexImport } from './routes/admin.index'
+import { Route as rootRouteImport } from './routes/__root'
+import { Route as TestRouteImport } from './routes/test'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as AdminMembersRouteImport } from './routes/admin.members'
 import { Route as AdminReviewsImport } from './routes/admin/reviews'
 import { Route as AdminReportsImport } from './routes/admin/reports'
-import { Route as AdminMembersImport } from './routes/admin.members'
 import { Route as AdminContentsImport } from './routes/admin/contents'
 
 // Create/Update Routes
 
-const LoginRoute = LoginImport.update({
+const TestRoute = TestRouteImport.update({
+  id: '/test',
+  path: '/test',
+  getParentRoute: () => rootRouteImport,
+} as any)
+
+const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const AdminRoute = AdminImport.update({
+const AdminRoute = AdminRouteImport.update({
   id: '/admin',
   path: '/admin',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const IndexRoute = IndexImport.update({
+const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const AdminIndexRoute = AdminIndexImport.update({
+const AdminIndexRoute = AdminIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => AdminRoute,
@@ -58,7 +60,7 @@ const AdminReportsRoute = AdminReportsImport.update({
   getParentRoute: () => AdminRoute,
 } as any)
 
-const AdminMembersRoute = AdminMembersImport.update({
+const AdminMembersRoute = AdminMembersRouteImport.update({
   id: '/members',
   path: '/members',
   getParentRoute: () => AdminRoute,
@@ -69,71 +71,152 @@ const AdminContentsRoute = AdminContentsImport.update({
   path: '/contents',
   getParentRoute: () => AdminRoute,
 } as any)
+export interface FileRoutesByFullPath {
+  '/': typeof IndexRoute
+  '/admin': typeof AdminRouteWithChildren
+  '/login': typeof LoginRoute
+  '/test': typeof TestRoute
+  '/admin/contents': typeof AdminContentsRoute
+  '/admin/members': typeof AdminMembersRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/reviews': typeof AdminReviewsRoute
+  '/admin/': typeof AdminIndexRoute
+}
 
-// Populate the FileRoutesByPath interface
+export interface FileRoutesByTo {
+  '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/test': typeof TestRoute
+  '/admin/contents': typeof AdminContentsRoute
+  '/admin/members': typeof AdminMembersRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/reviews': typeof AdminReviewsRoute
+  '/admin': typeof AdminIndexRoute
+}
+
+export interface FileRoutesById {
+  __root__: typeof rootRouteImport
+  '/': typeof IndexRoute
+  '/admin': typeof AdminRouteWithChildren
+  '/login': typeof LoginRoute
+  '/test': typeof TestRoute
+  '/admin/contents': typeof AdminContentsRoute
+  '/admin/members': typeof AdminMembersRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/reviews': typeof AdminReviewsRoute
+  '/admin/': typeof AdminIndexRoute
+}
+
+export interface FileRouteTypes {
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/login'
+    | '/test'
+    | '/admin/contents'
+    | '/admin/members'
+    | '/admin/reports'
+    | '/admin/reviews'
+    | '/admin/'
+  fileRoutesByTo: FileRoutesByTo
+  to:
+    | '/'
+    | '/login'
+    | '/test'
+    | '/admin/contents'
+    | '/admin/members'
+    | '/admin/reports'
+    | '/admin/reviews'
+    | '/admin'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/login'
+    | '/test'
+    | '/admin/contents'
+    | '/admin/members'
+    | '/admin/reports'
+    | '/admin/reviews'
+    | '/admin/'
+  fileRoutesById: FileRoutesById
+}
+
+export interface RootRouteChildren {
+  IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRouteWithChildren
+  LoginRoute: typeof LoginRoute
+  TestRoute: typeof TestRoute
+}
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/admin': {
-      id: '/admin'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof AdminImport
-      parentRoute: typeof rootRoute
+    '/test': {
+      id: '/test'
+      path: '/test'
+      fullPath: '/test'
+      preLoaderRoute: typeof TestRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/login': {
       id: '/login'
       path: '/login'
       fullPath: '/login'
-      preLoaderRoute: typeof LoginImport
-      parentRoute: typeof rootRoute
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/admin/contents': {
       id: '/admin/contents'
       path: '/contents'
       fullPath: '/admin/contents'
       preLoaderRoute: typeof AdminContentsImport
-      parentRoute: typeof AdminImport
+      parentRoute: typeof AdminRouteImport
     }
     '/admin/members': {
       id: '/admin/members'
       path: '/members'
       fullPath: '/admin/members'
-      preLoaderRoute: typeof AdminMembersImport
-      parentRoute: typeof AdminImport
+      preLoaderRoute: typeof AdminMembersRouteImport
+      parentRoute: typeof AdminRouteImport
     }
     '/admin/reports': {
       id: '/admin/reports'
       path: '/reports'
       fullPath: '/admin/reports'
       preLoaderRoute: typeof AdminReportsImport
-      parentRoute: typeof AdminImport
+      parentRoute: typeof AdminRouteImport
     }
     '/admin/reviews': {
       id: '/admin/reviews'
       path: '/reviews'
       fullPath: '/admin/reviews'
       preLoaderRoute: typeof AdminReviewsImport
-      parentRoute: typeof AdminImport
+      parentRoute: typeof AdminRouteImport
     }
     '/admin/': {
       id: '/admin/'
       path: '/'
       fullPath: '/admin/'
-      preLoaderRoute: typeof AdminIndexImport
-      parentRoute: typeof AdminImport
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRoute
     }
   }
 }
-
-// Create and export the route tree
 
 interface AdminRouteChildren {
   AdminContentsRoute: typeof AdminContentsRoute
@@ -153,85 +236,14 @@ const AdminRouteChildren: AdminRouteChildren = {
 
 const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
 
-export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/admin': typeof AdminRouteWithChildren
-  '/login': typeof LoginRoute
-  '/admin/contents': typeof AdminContentsRoute
-  '/admin/members': typeof AdminMembersRoute
-  '/admin/reports': typeof AdminReportsRoute
-  '/admin/reviews': typeof AdminReviewsRoute
-  '/admin/': typeof AdminIndexRoute
-}
-
-export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/login': typeof LoginRoute
-  '/admin/contents': typeof AdminContentsRoute
-  '/admin/members': typeof AdminMembersRoute
-  '/admin/reports': typeof AdminReportsRoute
-  '/admin/reviews': typeof AdminReviewsRoute
-  '/admin': typeof AdminIndexRoute
-}
-
-export interface FileRoutesById {
-  __root__: typeof rootRoute
-  '/': typeof IndexRoute
-  '/admin': typeof AdminRouteWithChildren
-  '/login': typeof LoginRoute
-  '/admin/contents': typeof AdminContentsRoute
-  '/admin/members': typeof AdminMembersRoute
-  '/admin/reports': typeof AdminReportsRoute
-  '/admin/reviews': typeof AdminReviewsRoute
-  '/admin/': typeof AdminIndexRoute
-}
-
-export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/admin'
-    | '/login'
-    | '/admin/contents'
-    | '/admin/members'
-    | '/admin/reports'
-    | '/admin/reviews'
-    | '/admin/'
-  fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/login'
-    | '/admin/contents'
-    | '/admin/members'
-    | '/admin/reports'
-    | '/admin/reviews'
-    | '/admin'
-  id:
-    | '__root__'
-    | '/'
-    | '/admin'
-    | '/login'
-    | '/admin/contents'
-    | '/admin/members'
-    | '/admin/reports'
-    | '/admin/reviews'
-    | '/admin/'
-  fileRoutesById: FileRoutesById
-}
-
-export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  AdminRoute: typeof AdminRouteWithChildren
-  LoginRoute: typeof LoginRoute
-}
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdminRoute: AdminRouteWithChildren,
   LoginRoute: LoginRoute,
+  TestRoute: TestRoute,
 }
 
-export const routeTree = rootRoute
+export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
 
@@ -243,7 +255,8 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/admin",
-        "/login"
+        "/login",
+        "/test"
       ]
     },
     "/": {
@@ -261,6 +274,9 @@ export const routeTree = rootRoute
     },
     "/login": {
       "filePath": "login.tsx"
+    },
+    "/test": {
+      "filePath": "test.tsx"
     },
     "/admin/contents": {
       "filePath": "admin/contents.tsx",

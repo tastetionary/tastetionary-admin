@@ -8,6 +8,7 @@ export default {
     extend: {
       fontFamily: {
         galmuri: ['Galmuri9', 'monospace'],
+        pretendard: ['Pretendard Variable', 'sans-serif'],
       },
       borderRadius: {
         lg: 'var(--radius)',
