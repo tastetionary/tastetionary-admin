@@ -31,18 +31,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const login = async (email: string, password: string): Promise<boolean> => {
     setIsLoading(true)
-    
+
     // 실제 API 호출 대신 모의 로그인 로직
     await new Promise(resolve => setTimeout(resolve, 1000)) // 로딩 시뮬레이션
-    
+
     // 테스트용 계정들
     const testAccounts = [
       { email: 'admin@tastetionary.com', password: 'admin123', role: 'admin' as const },
       { email: 'user@tastetionary.com', password: 'user123', role: 'user' as const },
     ]
-    
+
     const account = testAccounts.find(acc => acc.email === email && acc.password === password)
-    
+
     if (account) {
       const userData: User = {
         id: account.role === 'admin' ? 'admin-001' : 'user-001',
@@ -50,13 +50,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         email: account.email,
         role: account.role,
       }
-      
+
       setUser(userData)
       localStorage.setItem('user', JSON.stringify(userData))
       setIsLoading(false)
       return true
     }
-    
+
     setIsLoading(false)
     return false
   }
@@ -79,4 +79,4 @@ export function useAuth() {
     throw new Error('useAuth must be used within an AuthProvider')
   }
   return context
-} 
+}

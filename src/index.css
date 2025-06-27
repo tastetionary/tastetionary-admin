@@ -3,8 +3,16 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Pretendard Variable";
-  src: url("/fonts/PretendardVariable.woff2") format("woff2-variations");
+  font-family: 'Galmuri9';
+  src: url('./assets/fonts/Galmuri9.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard Variable';
+  src: url('/fonts/PretendardVariable.woff2') format('woff2-variations');
   font-weight: 45 920;
   font-style: normal;
   font-display: swap;
@@ -136,71 +144,82 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
-      system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo",
-      "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol", sans-serif;
+    font-family:
+      'Pretendard Variable',
+      -apple-system,
+      BlinkMacSystemFont,
+      system-ui,
+      Roboto,
+      'Helvetica Neue',
+      'Segoe UI',
+      'Apple SD Gothic Neo',
+      'Noto Sans KR',
+      'Malgun Gothic',
+      'Apple Color Emoji',
+      'Segoe UI Emoji',
+      'Segoe UI Symbol',
+      sans-serif;
   }
 }
 
 @layer components {
   .title1 {
-    font-family: "Pretendard Variable", sans-serif;
+    font-family: 'Pretendard Variable', sans-serif;
     font-size: 20px;
     font-weight: 600;
     line-height: 160%;
   }
 
   .title2 {
-    font-family: "Pretendard Variable", sans-serif;
+    font-family: 'Pretendard Variable', sans-serif;
     font-size: 20px;
     line-height: 160%;
   }
 
   .title3 {
-    font-family: "Pretendard Variable", sans-serif;
+    font-family: 'Pretendard Variable', sans-serif;
     font-size: 16px;
     line-height: 160%;
   }
 
   .title4 {
-    font-family: "Pretendard Variable", sans-serif;
+    font-family: 'Pretendard Variable', sans-serif;
     font-size: 24px;
     line-height: 160%;
   }
 
   .body1 {
-    font-family: "Pretendard Variable", sans-serif;
+    font-family: 'Pretendard Variable', sans-serif;
     font-size: 14px;
     line-height: 160%;
   }
 
   .body2 {
-    font-family: "Pretendard Variable", sans-serif;
+    font-family: 'Pretendard Variable', sans-serif;
     font-size: 14px;
     line-height: 160%;
   }
 
   .body3 {
-    font-family: "Pretendard Variable", sans-serif;
+    font-family: 'Pretendard Variable', sans-serif;
     font-size: 12px;
     line-height: 160%;
   }
 
   .body4 {
-    font-family: "Pretendard Variable", sans-serif;
+    font-family: 'Pretendard Variable', sans-serif;
     font-size: 11px;
     line-height: 160%;
   }
 
   .body5 {
-    font-family: "Pretendard Variable", sans-serif;
+    font-family: 'Pretendard Variable', sans-serif;
     font-size: 32px;
     line-height: 140%;
   }
 
   .body6 {
-    font-family: "Pretendard Variable", sans-serif;
+    font-family: 'Pretendard Variable', sans-serif;
     font-size: 18px;
     line-height: 100%;
   }

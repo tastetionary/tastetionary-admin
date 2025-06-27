@@ -15,12 +15,18 @@ import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as AdminMembersRouteImport } from './routes/admin.members'
+import { Route as AdminReviewsImport } from './routes/admin/reviews'
+import { Route as AdminReportsImport } from './routes/admin/reports'
+import { Route as AdminContentsImport } from './routes/admin/contents'
+
+// Create/Update Routes
 
 const TestRoute = TestRouteImport.update({
   id: '/test',
   path: '/test',
   getParentRoute: () => rootRouteImport,
 } as any)
+
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
@@ -41,51 +47,102 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AdminRoute,
 } as any)
+
+const AdminReviewsRoute = AdminReviewsImport.update({
+  id: '/reviews',
+  path: '/reviews',
+  getParentRoute: () => AdminRoute,
+} as any)
+
+const AdminReportsRoute = AdminReportsImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => AdminRoute,
+} as any)
+
 const AdminMembersRoute = AdminMembersRouteImport.update({
   id: '/members',
   path: '/members',
   getParentRoute: () => AdminRoute,
 } as any)
 
+const AdminContentsRoute = AdminContentsImport.update({
+  id: '/contents',
+  path: '/contents',
+  getParentRoute: () => AdminRoute,
+} as any)
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/admin': typeof AdminRouteWithChildren
   '/login': typeof LoginRoute
   '/test': typeof TestRoute
+  '/admin/contents': typeof AdminContentsRoute
   '/admin/members': typeof AdminMembersRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/reviews': typeof AdminReviewsRoute
   '/admin/': typeof AdminIndexRoute
 }
+
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
   '/test': typeof TestRoute
+  '/admin/contents': typeof AdminContentsRoute
   '/admin/members': typeof AdminMembersRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/reviews': typeof AdminReviewsRoute
   '/admin': typeof AdminIndexRoute
 }
+
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/admin': typeof AdminRouteWithChildren
   '/login': typeof LoginRoute
   '/test': typeof TestRoute
+  '/admin/contents': typeof AdminContentsRoute
   '/admin/members': typeof AdminMembersRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/reviews': typeof AdminReviewsRoute
   '/admin/': typeof AdminIndexRoute
 }
+
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/admin' | '/login' | '/test' | '/admin/members' | '/admin/'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/login'
+    | '/test'
+    | '/admin/contents'
+    | '/admin/members'
+    | '/admin/reports'
+    | '/admin/reviews'
+    | '/admin/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/test' | '/admin/members' | '/admin'
+  to:
+    | '/'
+    | '/login'
+    | '/test'
+    | '/admin/contents'
+    | '/admin/members'
+    | '/admin/reports'
+    | '/admin/reviews'
+    | '/admin'
   id:
     | '__root__'
     | '/'
     | '/admin'
     | '/login'
     | '/test'
+    | '/admin/contents'
     | '/admin/members'
+    | '/admin/reports'
+    | '/admin/reviews'
     | '/admin/'
   fileRoutesById: FileRoutesById
 }
+
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AdminRoute: typeof AdminRouteWithChildren
@@ -123,6 +180,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/contents': {
+      id: '/admin/contents'
+      path: '/contents'
+      fullPath: '/admin/contents'
+      preLoaderRoute: typeof AdminContentsImport
+      parentRoute: typeof AdminRouteImport
+    }
+    '/admin/members': {
+      id: '/admin/members'
+      path: '/members'
+      fullPath: '/admin/members'
+      preLoaderRoute: typeof AdminMembersRouteImport
+      parentRoute: typeof AdminRouteImport
+    }
+    '/admin/reports': {
+      id: '/admin/reports'
+      path: '/reports'
+      fullPath: '/admin/reports'
+      preLoaderRoute: typeof AdminReportsImport
+      parentRoute: typeof AdminRouteImport
+    }
+    '/admin/reviews': {
+      id: '/admin/reviews'
+      path: '/reviews'
+      fullPath: '/admin/reviews'
+      preLoaderRoute: typeof AdminReviewsImport
+      parentRoute: typeof AdminRouteImport
+    }
     '/admin/': {
       id: '/admin/'
       path: '/'
@@ -130,23 +215,22 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof AdminRoute
     }
-    '/admin/members': {
-      id: '/admin/members'
-      path: '/members'
-      fullPath: '/admin/members'
-      preLoaderRoute: typeof AdminMembersRouteImport
-      parentRoute: typeof AdminRoute
-    }
   }
 }
 
 interface AdminRouteChildren {
+  AdminContentsRoute: typeof AdminContentsRoute
   AdminMembersRoute: typeof AdminMembersRoute
+  AdminReportsRoute: typeof AdminReportsRoute
+  AdminReviewsRoute: typeof AdminReviewsRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
+  AdminContentsRoute: AdminContentsRoute,
   AdminMembersRoute: AdminMembersRoute,
+  AdminReportsRoute: AdminReportsRoute,
+  AdminReviewsRoute: AdminReviewsRoute,
   AdminIndexRoute: AdminIndexRoute,
 }
 
@@ -158,6 +242,62 @@ const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
   TestRoute: TestRoute,
 }
+
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+/* ROUTE_MANIFEST_START
+{
+  "routes": {
+    "__root__": {
+      "filePath": "__root.tsx",
+      "children": [
+        "/",
+        "/admin",
+        "/login",
+        "/test"
+      ]
+    },
+    "/": {
+      "filePath": "index.tsx"
+    },
+    "/admin": {
+      "filePath": "admin.tsx",
+      "children": [
+        "/admin/contents",
+        "/admin/members",
+        "/admin/reports",
+        "/admin/reviews",
+        "/admin/"
+      ]
+    },
+    "/login": {
+      "filePath": "login.tsx"
+    },
+    "/test": {
+      "filePath": "test.tsx"
+    },
+    "/admin/contents": {
+      "filePath": "admin/contents.tsx",
+      "parent": "/admin"
+    },
+    "/admin/members": {
+      "filePath": "admin.members.tsx",
+      "parent": "/admin"
+    },
+    "/admin/reports": {
+      "filePath": "admin/reports.tsx",
+      "parent": "/admin"
+    },
+    "/admin/reviews": {
+      "filePath": "admin/reviews.tsx",
+      "parent": "/admin"
+    },
+    "/admin/": {
+      "filePath": "admin.index.tsx",
+      "parent": "/admin"
+    }
+  }
+}
+ROUTE_MANIFEST_END */

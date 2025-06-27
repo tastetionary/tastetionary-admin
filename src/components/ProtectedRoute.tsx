@@ -30,9 +30,9 @@ export function ProtectedRoute({ children, requireAdmin = false }: ProtectedRout
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="flex min-h-screen items-center justify-center">
         <div className="text-center">
-          <Loader2 className="h-8 w-8 animate-spin mx-auto mb-4" />
+          <Loader2 className="mx-auto mb-4 h-8 w-8 animate-spin" />
           <p className="text-gray-600">로딩 중...</p>
         </div>
       </div>
@@ -48,4 +48,4 @@ export function ProtectedRoute({ children, requireAdmin = false }: ProtectedRout
   }
 
   return <>{children}</>
-} 
+}
