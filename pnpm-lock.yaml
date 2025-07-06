@@ -6,67 +6,6 @@ settings:
 
 importers:
 
-devDependencies:
-  '@eslint/js':
-    specifier: ^9.25.0
-    version: 9.25.0
-  '@tanstack/router-cli':
-    specifier: ^1.120.10
-    version: 1.120.10(@tanstack/react-router@1.120.10)
-  '@tanstack/router-devtools':
-    specifier: ^1.120.10
-    version: 1.120.10(@tanstack/react-router@1.120.10)(@tanstack/router-core@1.120.10)(csstype@3.1.3)(react-dom@19.1.0)(react@19.1.0)(tiny-invariant@1.3.3)
-  '@tanstack/router-vite-plugin':
-    specifier: ^1.120.10
-    version: 1.120.10(@tanstack/react-router@1.120.10)(vite@6.3.5)
-  '@types/node':
-    specifier: ^22.15.21
-    version: 22.15.21
-  '@types/react':
-    specifier: ^19.1.2
-    version: 19.1.2
-  '@types/react-dom':
-    specifier: ^19.1.2
-    version: 19.1.2(@types/react@19.1.2)
-  '@vitejs/plugin-react':
-    specifier: ^4.4.1
-    version: 4.4.1(vite@6.3.5)
-  autoprefixer:
-    specifier: ^10.4.21
-    version: 10.4.21(postcss@8.5.3)
-  eslint:
-    specifier: ^9.25.0
-    version: 9.25.0
-  eslint-plugin-react-hooks:
-    specifier: ^5.2.0
-    version: 5.2.0(eslint@9.25.0)
-  eslint-plugin-react-refresh:
-    specifier: ^0.4.19
-    version: 0.4.19(eslint@9.25.0)
-  globals:
-    specifier: ^16.0.0
-    version: 16.0.0
-  postcss:
-    specifier: ^8.5.3
-    version: 8.5.3
-  prettier-plugin-tailwindcss:
-    specifier: ^0.6.12
-    version: 0.6.12(prettier@3.5.3)
-  tailwindcss:
-    specifier: ^3.4.0
-    version: 3.4.17
-  tailwindcss-animate:
-    specifier: ^1.0.7
-    version: 1.0.7(tailwindcss@3.4.17)
-  typescript:
-    specifier: ~5.8.3
-    version: 5.8.3
-  typescript-eslint:
-    specifier: ^8.30.1
-    version: 8.30.1(eslint@9.25.0)(typescript@5.8.3)
-  vite:
-    specifier: ^6.3.5
-    version: 6.3.5(@types/node@22.15.21)
   .:
     dependencies:
       '@hookform/resolvers':
@@ -160,6 +99,12 @@ devDependencies:
       postcss:
         specifier: ^8.5.3
         version: 8.5.5
+      prettier:
+        specifier: ^3.6.2
+        version: 3.6.2
+      prettier-plugin-tailwindcss:
+        specifier: ^0.6.12
+        version: 0.6.13(prettier@3.6.2)
       tailwindcss:
         specifier: ^3.4.0
         version: 3.4.17
@@ -1870,8 +1815,8 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
-  /prettier-plugin-tailwindcss@0.6.12(prettier@3.5.3):
-    resolution: {integrity: sha512-OuTQKoqNwV7RnxTPwXWzOFXy6Jc4z8oeRZYGuMpRyG3WbuR3jjXdQFK8qFBMBx8UHWdHrddARz2fgUenild6aw==}
+  prettier-plugin-tailwindcss@0.6.13:
+    resolution: {integrity: sha512-uQ0asli1+ic8xrrSmIOaElDu0FacR4x69GynTh2oZjFY10JUt6EEumTQl5tB4fMeD6I1naKd+4rXQQ7esT2i1g==}
     engines: {node: '>=14.21.3'}
     peerDependencies:
       '@ianvs/prettier-plugin-sort-imports': '*'
@@ -1924,13 +1869,9 @@ packages:
         optional: true
       prettier-plugin-svelte:
         optional: true
-    dependencies:
-      prettier: 3.5.3
-    dev: true
 
-  /prettier@3.5.3:
-  prettier@3.5.3:
-    resolution: {integrity: sha512-QQtaxnoDJeAkDvDKWCLiwIXkTgRhwYDEQCghU9Z6q03iyek/rxRh/2lC3HB7P8sWT2xC/y5JDctPLBIGzHKbhw==}
+  prettier@3.6.2:
+    resolution: {integrity: sha512-I7AIg5boAr5R0FFtJ6rCfD+LFsWHp81dolrFD8S79U9tb8Az2nGrJncnMSnys+bpQJfRUzqs9hnA81OAA3hCuQ==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -2308,6 +2249,176 @@ packages:
 
   zod@3.25.64:
     resolution: {integrity: sha512-hbP9FpSZf7pkS7hRVUrOjhwKJNyampPgtXKc3AN6DsWtoHsg2Sb4SQaS4Tcay380zSwd2VPo9G9180emBACp5g==}
+
+devDependencies:
+  '@eslint/js':
+    specifier: ^9.25.0
+    version: 9.25.0
+  '@tanstack/router-cli':
+    specifier: ^1.120.10
+    version: 1.120.10(@tanstack/react-router@1.120.10)
+  '@tanstack/router-devtools':
+    specifier: ^1.120.10
+    version: 1.120.10(@tanstack/react-router@1.120.10)(@tanstack/router-core@1.120.10)(csstype@3.1.3)(react-dom@19.1.0)(react@19.1.0)(tiny-invariant@1.3.3)
+  '@tanstack/router-vite-plugin':
+    specifier: ^1.120.10
+    version: 1.120.10(@tanstack/react-router@1.120.10)(vite@6.3.5)
+  '@types/node':
+    specifier: ^22.15.21
+    version: 22.15.21
+  '@types/react':
+    specifier: ^19.1.2
+    version: 19.1.2
+  '@types/react-dom':
+    specifier: ^19.1.2
+    version: 19.1.2(@types/react@19.1.2)
+  '@vitejs/plugin-react':
+    specifier: ^4.4.1
+    version: 4.4.1(vite@6.3.5)
+  autoprefixer:
+    specifier: ^10.4.21
+    version: 10.4.21(postcss@8.5.3)
+  eslint:
+    specifier: ^9.25.0
+    version: 9.25.0
+  eslint-plugin-react-hooks:
+    specifier: ^5.2.0
+    version: 5.2.0(eslint@9.25.0)
+  eslint-plugin-react-refresh:
+    specifier: ^0.4.19
+    version: 0.4.19(eslint@9.25.0)
+  globals:
+    specifier: ^16.0.0
+    version: 16.0.0
+  postcss:
+    specifier: ^8.5.3
+    version: 8.5.3
+  prettier-plugin-tailwindcss:
+    specifier: ^0.6.12
+    version: 0.6.12(prettier@3.5.3)
+  tailwindcss:
+    specifier: ^3.4.0
+    version: 3.4.17
+  tailwindcss-animate:
+    specifier: ^1.0.7
+    version: 1.0.7(tailwindcss@3.4.17)
+  typescript:
+    specifier: ~5.8.3
+    version: 5.8.3
+  typescript-eslint:
+    specifier: ^8.30.1
+    version: 8.30.1(eslint@9.25.0)(typescript@5.8.3)
+  vite:
+    specifier: ^6.3.5
+    version: 6.3.5(@types/node@22.15.21)
+  .:
+    dependencies:
+      '@hookform/resolvers':
+        specifier: ^5.0.1
+        version: 5.1.1(react-hook-form@7.58.0(react@19.1.0))
+      '@radix-ui/react-avatar':
+        specifier: ^1.1.10
+        version: 1.1.10(@types/react-dom@19.1.6(@types/react@19.1.8))(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@radix-ui/react-checkbox':
+        specifier: ^1.3.2
+        version: 1.3.2(@types/react-dom@19.1.6(@types/react@19.1.8))(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@radix-ui/react-dropdown-menu':
+        specifier: ^2.1.15
+        version: 2.1.15(@types/react-dom@19.1.6(@types/react@19.1.8))(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@radix-ui/react-label':
+        specifier: ^2.1.7
+        version: 2.1.7(@types/react-dom@19.1.6(@types/react@19.1.8))(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@radix-ui/react-select':
+        specifier: ^2.2.5
+        version: 2.2.5(@types/react-dom@19.1.6(@types/react@19.1.8))(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@radix-ui/react-slot':
+        specifier: ^1.2.3
+        version: 1.2.3(@types/react@19.1.8)(react@19.1.0)
+      '@tanstack/react-router':
+        specifier: ^1.120.10
+        version: 1.121.12(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      class-variance-authority:
+        specifier: ^0.7.1
+        version: 0.7.1
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
+      lucide-react:
+        specifier: ^0.511.0
+        version: 0.511.0(react@19.1.0)
+      react:
+        specifier: ^19.1.0
+        version: 19.1.0
+      react-dom:
+        specifier: ^19.1.0
+        version: 19.1.0(react@19.1.0)
+      react-hook-form:
+        specifier: ^7.56.4
+        version: 7.58.0(react@19.1.0)
+      tailwind-merge:
+        specifier: ^3.3.0
+        version: 3.3.1
+      zod:
+        specifier: ^3.25.28
+        version: 3.25.64
+    devDependencies:
+      '@eslint/js':
+        specifier: ^9.25.0
+        version: 9.29.0
+      '@tanstack/router-cli':
+        specifier: ^1.120.10
+        version: 1.121.13
+      '@tanstack/router-devtools':
+        specifier: ^1.120.10
+        version: 1.121.12(@tanstack/react-router@1.121.12(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(@tanstack/router-core@1.121.12)(csstype@3.1.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(solid-js@1.9.7)(tiny-invariant@1.3.3)
+      '@tanstack/router-vite-plugin':
+        specifier: ^1.120.10
+        version: 1.121.13(@tanstack/react-router@1.121.12(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(vite@6.3.5(@types/node@22.15.31)(jiti@1.21.7)(tsx@4.20.3)(yaml@2.8.0))
+      '@types/node':
+        specifier: ^22.15.21
+        version: 22.15.31
+      '@types/react':
+        specifier: ^19.1.2
+        version: 19.1.8
+      '@types/react-dom':
+        specifier: ^19.1.2
+        version: 19.1.6(@types/react@19.1.8)
+      '@vitejs/plugin-react':
+        specifier: ^4.4.1
+        version: 4.5.2(vite@6.3.5(@types/node@22.15.31)(jiti@1.21.7)(tsx@4.20.3)(yaml@2.8.0))
+      autoprefixer:
+        specifier: ^10.4.21
+        version: 10.4.21(postcss@8.5.5)
+      eslint:
+        specifier: ^9.25.0
+        version: 9.29.0(jiti@1.21.7)
+      eslint-plugin-react-hooks:
+        specifier: ^5.2.0
+        version: 5.2.0(eslint@9.29.0(jiti@1.21.7))
+      eslint-plugin-react-refresh:
+        specifier: ^0.4.19
+        version: 0.4.20(eslint@9.29.0(jiti@1.21.7))
+      globals:
+        specifier: ^16.0.0
+        version: 16.2.0
+      postcss:
+        specifier: ^8.5.3
+        version: 8.5.5
+      tailwindcss:
+        specifier: ^3.4.0
+        version: 3.4.17
+      tailwindcss-animate:
+        specifier: ^1.0.7
+        version: 1.0.7(tailwindcss@3.4.17)
+      typescript:
+        specifier: ~5.8.3
+        version: 5.8.3
+      typescript-eslint:
+        specifier: ^8.30.1
+        version: 8.34.0(eslint@9.29.0(jiti@1.21.7))(typescript@5.8.3)
+      vite:
+        specifier: ^6.3.5
+        version: 6.3.5(@types/node@22.15.31)(jiti@1.21.7)(tsx@4.20.3)(yaml@2.8.0)
 
 snapshots:
 
@@ -3182,7 +3293,7 @@ snapshots:
       '@tanstack/router-core': 1.121.12
       '@tanstack/router-utils': 1.121.0
       '@tanstack/virtual-file-routes': 1.120.17
-      prettier: 3.5.3
+      prettier: 3.6.2
       recast: 0.23.11
       source-map: 0.7.4
       tsx: 4.20.3
@@ -3963,7 +4074,11 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier@3.5.3: {}
+  prettier-plugin-tailwindcss@0.6.13(prettier@3.6.2):
+    dependencies:
+      prettier: 3.6.2
+
+  prettier@3.6.2: {}
 
   punycode@2.3.1: {}
 
