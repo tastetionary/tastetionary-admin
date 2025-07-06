@@ -16,7 +16,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as AdminReviewsRouteImport } from './routes/admin/reviews'
 import { Route as AdminReportsRouteImport } from './routes/admin/reports'
-import { Route as AdminMembersRouteImport } from './routes/admin.members'
+import { Route as AdminMembersRouteImport } from './routes/admin/members'
 import { Route as AdminContentsRouteImport } from './routes/admin/contents'
 
 const TestRoute = TestRouteImport.update({

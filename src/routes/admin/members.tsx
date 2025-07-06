@@ -1,15 +1,15 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { MembersTable } from '@/components/MembersTable'
 import { ProtectedRoute } from '@/components/ProtectedRoute'
+import { Members } from '@/components/members'
 
-function ProtectedMembersTable() {
+function ProtectedMembers() {
   return (
     <ProtectedRoute requireAdmin>
-      <MembersTable />
+      <Members />
     </ProtectedRoute>
   )
 }
 
 export const Route = createFileRoute('/admin/members')({
-  component: ProtectedMembersTable,
+  component: ProtectedMembers,
 })
