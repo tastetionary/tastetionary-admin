@@ -5,50 +5,28 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
 import { SearchInput } from '../ui/search-input'
 import { Button } from '../ui/button'
-
-const SELECT_OPTIONS: { label: string; value: string }[] = [
-  {
-    label: '전체',
-    value: 'all',
-  },
-  {
-    label: '회원 이름',
-    value: 'name',
-  },
-  {
-    label: '아이디',
-    value: 'id',
-  },
-  {
-    label: '닉네임',
-    value: 'nickname',
-  },
-  {
-    label: '가입일',
-    value: 'joinDate',
-  },
-  {
-    label: '활동상태',
-    value: 'activityStatus',
-  },
-]
+import { MEMBER_TABLE_SELECT_OPTIONS } from './constant'
 
 const searchFormSchema = z.object({
   searchType: z.string(),
   searchValue: z.string().min(1, '검색어를 입력해주세요'),
 })
 
-interface SearchFormData {
+export interface MemberSearchFormData {
   searchType: string
   searchValue: string
 }
 
-export const MemberSearchCard = () => {
+interface MemberSearchCardProps {
+  onSearch: (data: MemberSearchFormData) => void
+}
+
+export const MemberSearchCard = ({ onSearch }: MemberSearchCardProps) => {
   const {
     control,
     handleSubmit,
     formState: { isSubmitting, isValid },
-  } = useForm<SearchFormData>({
+  } = useForm<MemberSearchFormData>({
     resolver: zodResolver(searchFormSchema),
     defaultValues: {
       searchType: 'all',
@@ -56,8 +34,8 @@ export const MemberSearchCard = () => {
     },
   })
 
-  const onSubmit = (data: SearchFormData) => {
-    console.log(data)
+  const onSubmit = (data: MemberSearchFormData) => {
+    onSearch(data)
   }
 
   return (
@@ -79,7 +57,7 @@ export const MemberSearchCard = () => {
                 </SelectTrigger>
 
                 <SelectContent>
-                  {SELECT_OPTIONS.map(option => (
+                  {MEMBER_TABLE_SELECT_OPTIONS.map(option => (
                     <SelectItem key={option.value} value={option.value}>
                       {option.label}
                     </SelectItem>

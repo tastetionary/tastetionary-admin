@@ -1,13 +1,14 @@
+import { cn } from '@/lib/utils'
 import React, { type ReactNode } from 'react'
 
-interface AdminLayoutProps {
+interface AdminLayoutProps extends React.HTMLAttributes<HTMLDivElement> {
   children: ReactNode
   title: string
   description?: string
 }
 
 export const AdminLayout = React.forwardRef<HTMLDivElement, AdminLayoutProps>(
-  ({ children, title, description }, ref) => (
+  ({ children, title, description, className }, ref) => (
     <div ref={ref} className="w-full bg-[#EDEFF1] p-10">
       <div className="mx-auto max-w-[1440px]">
         <div className="flex flex-col gap-6">
@@ -22,7 +23,7 @@ export const AdminLayout = React.forwardRef<HTMLDivElement, AdminLayoutProps>(
             )}
           </header>
 
-          <main>{children}</main>
+          <main className={cn('flex flex-col gap-6', className)}>{children}</main>
         </div>
       </div>
     </div>
